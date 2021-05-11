@@ -1,0 +1,41 @@
+from tkinter import *  
+from tkinter import ttk  
+from textwrap import wrap
+root = Tk()
+
+root.title("Добро пожаловать на вики по Python")  
+root.geometry('1600x900')  
+tab_control = ttk.Notebook(root)  
+vs = ttk.Frame(tab_control)  
+Tkk = ttk.Frame(tab_control)  
+Tk = ttk.Frame(tab_control)  
+tab_control.add(vs, text='Это вступление:')  
+tab_control.add(Tkk, text='Tkinter')  
+tab_control.add(Tk, text='Class')  
+lbl1 = Label(vs, text='Добро пожаловать на вики по Python, тут я расскажу про Tkinter на котором и написано это вики, а также про class, Функции, Циклы, Декораторы.', font=("Georgia", 15))  
+lbl1.grid(column=0, row=0) 
+lbl2 = "Библиотека Tkinter установлена в Python в качестве стандартного модуля, поэтому нам не нужно устанавливать что-либо для его использования. Он кроссплатформенный, поэтому один и тот же код можно использовать на Windows, macOS и Linux."
+lbl2 = Label(Tkk, text=lbl2, font=("Georgia", 15))  
+lbl2.grid(column=0, row=0)
+text = "Класс – это проект объекта. Если вы используете ключевое слово dir, вы получите список всех методов, которые можно присвоить строке. Например, чтобы создать класс, мы используем ключевое слово class, за которым следует наименование класса. В Пайтоне, конвенция указывает на то, что наименование класса должно начинаться с заглавной буквы. Далее нам нужно открыть круглые скобки, за которыми следует слово object и закрытые скобки." 
+lbl3 = Label(Tk, text=text, font=("Georgia", 15))  
+lbl3.grid(column=0, row=0)
+
+
+
+root.update()
+
+width = lbl3.winfo_width()
+
+if width > 600:
+    char_width = width / len(text)
+    wrapped_lbl3 = '\n'.join(wrap(text, int(1600 / char_width)))
+    lbl3['text'] = wrapped_text
+
+
+
+
+tab_control.pack(expand=1, fill='both') 
+
+
+root.mainloop()
